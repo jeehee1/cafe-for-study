@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import classes from "./ShowHome.module.css";
 
 const ShowHome = () => {
+  const navigate= useNavigate();
   const city = [
     "서울",
     "부산",
@@ -52,7 +54,7 @@ const ShowHome = () => {
           <div className={classes["city-list"]}>
             {city.map((c) => (
               <div>
-                <button key={c} className={classes["city-btn"]}>
+                <button key={c} className={classes["city-btn"]} onClick={() => navigate(`/cafes?city=${c}`)}>
                   {c}
                 </button>
               </div>
