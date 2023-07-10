@@ -1,17 +1,14 @@
 .show-page {
-  max-width: 1080px;
+  padding: 2rem;
   margin: 0 auto;
   font: inherit;
 }
 
-
-.city {
-  margin: 2rem 0;
-}
-
 .features-list {
+  padding: 1.5rem 0;
   display: flex;
   justify-content: space-around;
+  border-bottom : 3px solid #532353
 }
 
 .filter-icon {

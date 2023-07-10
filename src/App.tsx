@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       {
-        path: "/cafe",
+        path: "/cafe",  // coffeeshop으로 수정
         element: <ShopsList />,
       },
       {
