@@ -3,29 +3,54 @@ import { ShopType } from "../../../types/shopTypes";
 import React, { useState } from "react";
 
 const features = [
-  { name: "와이파이", icon: require("../icons/wifi-btn.png") },
-  { name: "넓은 좌석", icon: require("../icons/seat-btn.png") },
-  { name: "멋진 인테리어", icon: require("../icons/coffee-btn.png") },
-  { name: "콘센트 보유", icon: require("../icons/plug-btn.png") },
-  { name: "화장실", icon: require("../icons/toilet1-btn.png") },
+  { name: "와이파이", icon: require("../icons/wifi-btn.png"), isActive: false },
+  {
+    name: "넓은 좌석",
+    icon: require("../icons/seat-btn.png"),
+    isActive: false,
+  },
+  {
+    name: "멋진 인테리어",
+    icon: require("../icons/coffee-btn.png"),
+    isActive: false,
+  },
+  {
+    name: "콘센트 보유",
+    icon: require("../icons/plug-btn.png"),
+    isActive: false,
+  },
+  {
+    name: "화장실",
+    icon: require("../icons/toilet1-btn.png"),
+    isActive: false,
+  },
 ];
 
 const ShowShops = ({ shops }: { shops: ShopType[] }) => {
-  const [selectedFeature, setSelectedFeature] =
-    useState<{ name: string; icon: any }[]>();
+  const [filters, setFilters] =
+    useState<{ name: string; icon: any; isActive: boolean }[]>(features);
+  console.log(filters);
 
   return (
     // 필터 선택 버튼 리스트
     <div className={classes["show-page"]}>
       <div className={classes["features-list"]}>
-        {features.map((f) => (
+        {filters.map((f) => (
           <img
-            className={classes["filter-icon"]}
+            className={
+              f.isActive
+                ? classes["filter-icon-active"]
+                : classes["filter-icon"]
+            }
             src={f.icon}
-            onClick={() =>
-              selectedFeature
-                ? setSelectedFeature([...selectedFeature, f])
-                : setSelectedFeature([f])
+            onClick={
+              () => {
+                f.isActive = !f.isActive;
+                setFilters([...filters]);
+              }
+              // selectedFeature
+              //   ? setSelectedFeature([...selectedFeature, f])
+              //   : setSelectedFeature([f])
             }
           />
         ))}
