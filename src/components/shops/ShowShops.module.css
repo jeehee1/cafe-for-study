@@ -8,12 +8,22 @@
   padding: 1.5rem 0;
   display: flex;
   justify-content: space-around;
-  border-bottom : 3px solid #532353
+  border-bottom: 3px solid #532353;
 }
 
 .filter-icon {
   width: 55px;
   height: 46px;
+}
+
+.filter-icon-active {
+  width: 55px;
+  height: 46px;
+  filter: brightness(30%);
+}
+
+.filter-icon .inactive {
+  filter: brightness(50%);
 }
 
 .shops-list {
